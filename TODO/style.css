@@ -63,6 +63,7 @@
     border-radius: 5px;
     border: none;
     outline: none;
+    background-color: rgb(26, 122, 104);
   }
   
   /* Add border when input is not readonly and focused */

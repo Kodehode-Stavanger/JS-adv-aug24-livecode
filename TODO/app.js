@@ -64,7 +64,8 @@ function renderList(taskArr) {
         localStorage.removeItem("showCompleted")
         localStorage.removeItem("sortBy")
     }
-    buildList(filterAndSort(taskArr))
+    tasks = filterAndSort(taskArr)
+    buildList(tasks)
     saveStateToLocalStorage()
 }
 
@@ -113,6 +114,7 @@ function buildList(taskArr) {
         // Update the tasks array and add/remove the completed CSS class
         completedElem.addEventListener("change", () => {
             tasks[i].completed = completedElem.checked
+            console.log(tasks[i].description, task.description)
             saveStateToLocalStorage()
             if (task.completed) {
                 taskContainer.classList.add("completed")

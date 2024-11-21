@@ -1,6 +1,5 @@
 // Asynchronous Javascript.
 
-
 // CALLBACK HELL! Old way of doing async javascript
 // console.log("Start");
 
@@ -46,8 +45,6 @@ console.log("End"); */
     console.log("This happens no matter what.")
 }) */
 
-
-
 // API - application programming interface
 // RESTFul API
 // JSON - Javascript Object Notation
@@ -73,15 +70,36 @@ console.log("End"); */
     }
 } */
 
-    // Fetch
+// Fetch
 
-fetch("https://jsonplaceholder.typicode.com/todos")
-    .then((res) => {
-        res.json().then((data) => {
-            console.log(data)
-        })
-    })
-    
-    .catch((err) => {
-        console.log(err)
-    })
+/* fetch("https://random.dog/woof.json")
+  .then((res) => res.json())
+  .then((data) => getData(data))
+  .catch((err) => console.error(err)); */
+
+/* function getData(data) {
+  const dogImage = document.createElement("img")
+  dogImage.src = data.url
+  document.body.append(dogImage)
+}   */
+
+// https://random.dog/woof.json
+
+// async/await
+
+const apiEndpoint = "http://gutendex.com/books";
+
+async function getBook(id) {
+  //try/catch
+  try {
+    const result = await fetch(`${apiEndpoint}/${id}`);
+    const data = await result.json();
+    renderSite(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+function renderSite(data) {
+  console.log(data);
+}
+getBook(1);
